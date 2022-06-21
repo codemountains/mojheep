@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "wasm-pack build wasm -d ../lib/wasm.pkg && next dev",
-        "build": "wasm-pack build wasm -d ../lib/wasm.pkg && next build",
+        "build": "wasm-pack build wasm --release --target web -d ../lib/wasm.pkg && next build",
         "start": "wasm-pack build wasm -d ../lib/wasm.pkg && next start",
         "lint": "next lint",
         "wasm:build": "wasm-pack build wasm -d ../lib/wasm.pkg",
