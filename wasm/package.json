@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "vercel-build": "./rs-build.sh"
+        "vercel-build": "../rs-build.sh"
     }
 }
