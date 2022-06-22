@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    cleanDistDir: false,
     webpack: (config, {isServer}) => {
         config.experiments = {
-            asyncWebAssembly: true
+            syncWebAssembly: true,
+            asyncWebAssembly: true,
+            layers: true
         };
-        config.output.webassemblyModuleFilename = (isServer ? '../' : '') + 'static/wasm/[modulehash].wasm';
-        config.optimization.moduleIds = "named";
+        config.output.webassemblyModuleFilename = (isServer ? './../' : '') + 'static/wasm/[modulehash].wasm';
         return config;
     },
     eslint: {
