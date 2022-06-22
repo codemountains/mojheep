@@ -1,19 +1,34 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
-    experimental: {
-        nftTracing: true
-    },
-    webpack: (config, {isServer}) => {
+module.exports = {
+    webpack(config, { isServer, dev }) {
         config.experiments = {
-            asyncWebAssembly: true
+            asyncWebAssembly: true,
+            layers: true
         };
-        config.output.webassemblyModuleFilename = (isServer ? './../' : '') + 'static/wasm/[modulehash].wasm';
+
+        if (!dev && isServer) {
+            config.output.webassemblyModuleFilename = "chunks/[id].wasm";
+            config.plugins.push(new WasmChunksFixPlugin());
+        }
+
         return config;
-    },
-    eslint: {
-        ignoreDuringBuilds: true
     }
 };
 
-module.exports = nextConfig;
+class WasmChunksFixPlugin {
+    apply(compiler) {
+        compiler.hooks.thisCompilation.tap("WasmChunksFixPlugin", (compilation) => {
+            compilation.hooks.processAssets.tap(
+                { name: "WasmChunksFixPlugin" },
+                (assets) =>
+                    Object.entries(assets).forEach(([pathname, source]) => {
+                        if (!pathname.match(/\.wasm$/)) return;
+                        compilation.deleteAsset(pathname);
+
+                        const name = pathname.split("/")[1];
+                        const info = compilation.assetsInfo.get(pathname);
+                        compilation.emitAsset(name, source, info);
+                    })
+            );
+        });
+    }
+}
