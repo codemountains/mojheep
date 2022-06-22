@@ -3,11 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "wasm-pack build wasm -d ../lib/wasm.pkg && next dev",
-        "build": "wasm-pack build wasm -d ../lib/wasm.pkg && next build",
-        "start": "wasm-pack build wasm -d ../lib/wasm.pkg && next start",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
         "lint": "next lint",
-        "wasm:build": "wasm-pack build wasm -d ../lib/wasm.pkg",
+        "wasm:build": "cd wasm && ./rs-build.sh && cd ../",
         "wasm:fmt": "cd wasm/ && cargo fmt && cd ../",
         "wasm:test": "cd wasm/ && cargo test && cd ../"
     },
