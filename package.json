@@ -7,9 +7,9 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "wasm:build": "cd wasm && ./rs-build.sh && cd ../",
-        "wasm:fmt": "cd wasm/ && cargo fmt && cd ../",
-        "wasm:test": "cd wasm/ && cargo test && cd ../"
+        "wasm:build": "cd wasm && ./rs-build.sh",
+        "wasm:fmt": "cd wasm/ && cargo fmt",
+        "wasm:test": "cd wasm/ && cargo test"
     },
     "dependencies": {
         "next": "12.1.6",
