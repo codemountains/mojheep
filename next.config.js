@@ -10,7 +10,11 @@ module.exports = {
             config.plugins.push(new WasmChunksFixPlugin());
         }
 
+
         return config;
+    },
+    eslint: {
+        ignoreDuringBuilds: true
     }
 };
 
