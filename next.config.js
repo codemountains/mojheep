@@ -7,7 +7,7 @@ const nextConfig = {
             asyncWebAssembly: true,
             layers: true
         };
-        config.output.webassemblyModuleFilename = (isServer ? './../' : '') + 'static/wasm/[modulehash].wasm';
+        config.output.webassemblyModuleFilename = (isServer ? '../' : '') + 'static/wasm/[modulehash].wasm';
         return config;
     },
     eslint: {
