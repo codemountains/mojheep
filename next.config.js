@@ -7,6 +7,7 @@ const nextConfig = {
             asyncWebAssembly: true
         };
         config.output.webassemblyModuleFilename = (isServer ? '../' : '') + 'static/wasm/[modulehash].wasm';
+        config.optimization.moduleIds = "named";
         return config;
     },
     eslint: {
