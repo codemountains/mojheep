@@ -1,2 +1,2 @@
 #!/bin/sh
-wasm-pack build -d ../lib/wasm.pkg
+wasm-pack build wasm -d ../lib/wasm.pkg
