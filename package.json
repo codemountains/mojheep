@@ -10,7 +10,8 @@
         "build:wasm": "cd wasm/ && ./rs-build.sh",
         "fmt:wasm": "cd wasm/ && cargo fmt",
         "test:wasm": "cd wasm/ && cargo test",
-        "build:prod": "npm run build:wasm && next build"
+        "build:prod": "npm run build:wasm && next build",
+        "test:cd": "ls && ls && cd wasm/"
     },
     "dependencies": {
         "next": "12.1.6",
