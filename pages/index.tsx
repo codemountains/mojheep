@@ -22,6 +22,10 @@ const getResult = (text: string, isWasm: boolean): CountResult => {
     let spaceLen: number;
     let newLineLen: number;
 
+    if (text.length == 0) {
+        return initializeResult();
+    }
+
     performance.clearMarks();
     performance.clearMeasures();
 
