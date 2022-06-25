@@ -2,10 +2,10 @@ import type {NextPage} from "next";
 import Layout from "../components/base/Layout";
 import ToggleSwitch from "../components/buttons/ToggleSwitch";
 import ResetButton from "../components/buttons/ResetButton";
-import {get_length, get_space_length, get_new_line_length} from "../lib/wasm.pkg";
+import {get_length, get_space_length, get_new_line_length} from "../lib/wasm_modules";
 import React, {useState} from "react";
 import ResultTable from "../components/tables/ResultTable";
-import {getStrLen, getSpaceLen, getNewLineLen} from "../lib/js.pkg/utils";
+import {getStrLen, getSpaceLen, getNewLineLen} from "../lib/utils_modules/utils";
 import Image from "next/image";
 
 type CountResult = {
